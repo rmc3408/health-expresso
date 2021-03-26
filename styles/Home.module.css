@@ -1,22 +1,5 @@
-.container {
-  min-height: 100vh;
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .main {
   padding: 20px;
-}
-
-.title {
-  margin: 0;
-  line-height: 6rem;
-  font-size: 3rem;
-  text-align: center;
 }
 
 .grid {
@@ -34,8 +17,6 @@
     flex-direction: column;
   }
 }
-
-
 
 
 .btnAct {

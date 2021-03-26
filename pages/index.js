@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Layout from "./Layout";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
-
+import styled from 'styled-components';
 import Group from "./group";
 import Paginate from './Paginate';
 import FullPosts from './FullPosts';
@@ -72,6 +72,8 @@ export default function Home({ data }) {
   const groupID = () => {
     setIsGrouped(!isGrouped);
   };
+
+  
 
   return (
     <Layout>

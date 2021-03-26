@@ -18,7 +18,6 @@ function Paginate({ screen, handlePageClick}) {
   return (
     <div>
       <div>{fivePosts}</div>
-      <div>
         <ReactPaginate
           previousLabel={"previous"}
           nextLabel={"next"}
@@ -29,10 +28,8 @@ function Paginate({ screen, handlePageClick}) {
           pageRangeDisplayed={pageRangeDisplayed}
           onPageChange={handlePageClick}
           containerClassName={styles.pagination}
-          subContainerClassName={styles.pages}
           activeClassName={styles.active}
         />
-      </div>
     </div>
   );
 }
