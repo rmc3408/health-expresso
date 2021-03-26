@@ -1,8 +1,8 @@
 .pagination {
   width: 80%;
   height: 100px;
-  margin: 15px auto;
-  border-top: 1px solid #eaeaea;
+  margin: 65px auto;
+  border-top: 1px solid palevioletred;
   list-style: none;
   display: flex;
   justify-content: center;
@@ -10,14 +10,13 @@
 }
 
 .pagination > .active > a {
-  background-color: #47ccde;
-  border-color: #47ccde;
+  background-color: rgb(179, 24, 78);
+  border-color: palevioletred;
   color: #fff;
 }
 
 
 .pagination > li > a {
-  border: 1px solid #47ccde;
   padding: 5px 15px;
   outline: none;
   cursor: pointer;

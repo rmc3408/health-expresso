@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Layout from "./Layout";
-import styles from "../styles/Home.module.css";
 import axios from "axios";
 import styled from 'styled-components';
 import Group from "./group";
@@ -12,7 +11,7 @@ export default function Home({ data }) {
   const [fullPosts, setFullPosts] = useState([]);
   const [paginatePosts, setPaginatePosts] = useState([]);
   const [groupedPosts, setGroupPosts] = useState([]);
-  const [isAllpost, setAllPost] = useState(false);
+  const [isAllpost, setAllPost] = useState(true);
   const [isGrouped, setIsGrouped] = useState(false);
 
   const perPage = 5;
@@ -73,32 +72,61 @@ export default function Home({ data }) {
     setIsGrouped(!isGrouped);
   };
 
-  
+  const MainBoard = styled.main`
+    padding: 20px;
+    min-width: 100%;
+`;
+  const Button = styled.button`
+    color: palevioletred;
+    font-size: 1em;
+    background-color: white;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: palevioletred;
+      color: white;
+    }
+  `;
+  const GroupedButton = styled(Button)`
+    color: lightred;
+    border-color: violetred;
+  `;
+  const Grid = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-top: 3rem;
+  `;
 
   return (
     <Layout>
-      <main className={styles.main}>
+      <MainBoard>
         
 
-        <label>Pagination or All Post: </label>
-        <button onClick={() => tooglePagination()} className={isAllpost ? styles.btnInact : styles.btnAct}>
-          {isAllpost ? "Show Pagination" : "Show All Post"}
-        </button>
+        <label>Filter by: </label>
+        <Button onClick={() => tooglePagination()}>
+          {isAllpost ? "5 per Page" : "All"}
+        </Button>
         
         
         {isAllpost ? (
-          <button onClick={() => groupID()} className={isGrouped ? styles.btnInact : styles.btnAct}>
-            {isGrouped ? "USER GROUPED" : "Group by ID"}
-          </button>
+          <GroupedButton onClick={() => groupID()}>
+            {isGrouped ? "Grouped" : "UserID"}
+          </GroupedButton>
         ) : "" }
 
 
-        <div className={styles.grid}>
+        <Grid>
           {!isAllpost ? <Paginate screen={paginatePosts} handlePageClick={handlePageClick}/> : (
             isGrouped ? <Group groups={groupedPosts} /> : <FullPosts screen={fullPosts}/> )}
-        </div>
+        </Grid>
 
-      </main>
+      </MainBoard>
     </Layout>
   );
 }
