@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import Layout from "./Layout";
+import Layout from "../components/Layout";
 import axios from "axios";
 import styled from 'styled-components';
-import Group from "./group";
-import Paginate from './Paginate';
-import FullPosts from './FullPosts';
+import Group from "../components/group";
+import Paginate from '../components/Paginate';
+import FullPosts from '../components/FullPosts';
 
 
 //style components
