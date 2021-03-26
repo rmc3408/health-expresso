@@ -1,18 +1,20 @@
 export default function Group({ groups }) {
+  
+  /**
+   * Transforming 1 Object with 10 multiples Arrays 
+   * to 1 array with 10 Arrays 
+  */
+  const users = Object.values(groups);
 
+  return (
+    <div className="container">
+      <div className="card">
+        {users.map((user, idx) => <div>
+          <h2> User ID {idx+1} </h2>
+          {user.map(post => <p>{post.title}</p>)}
+          </div> )}
 
-    const printGrpTitle = (n) => {
-        let print = [];
-          for (let num in groups) {
-            print[num - 1] = groups[num].map(c => (<div>
-              <p>{c.title}</p>
-              </div>))
-          }
-        return print[n];
-    }
-    
-    return <div>
-        <h1> User ID 1 </h1>
-        {printGrpTitle(1)}
-    </div>;
+      </div>
+    </div>
+  );
 }
