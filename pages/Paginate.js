@@ -1,7 +1,10 @@
 import ReactPaginate from "react-paginate";
+import styles from "../styles/Paginate.module.css";
 
 function Paginate({ screen, handlePageClick}) {
   const pageCount = 20;
+  const marginPagesDisplayed = 3;
+  const pageRangeDisplayed = 20;
 
   const fivePosts = screen.map((pd) => (
     <div key={pd.id}>
@@ -22,12 +25,12 @@ function Paginate({ screen, handlePageClick}) {
           breakLabel={"..."}
           breakClassName={"break-me"}
           pageCount={pageCount}
-          marginPagesDisplayed={3}
-          pageRangeDisplayed={20}
+          marginPagesDisplayed={marginPagesDisplayed}
+          pageRangeDisplayed={pageRangeDisplayed}
           onPageChange={handlePageClick}
-          containerClassName={'styles.pagination'}
-          subContainerClassName={'styles.pages'}
-          activeClassName={'styles.active'}
+          containerClassName={styles.pagination}
+          subContainerClassName={styles.pages}
+          activeClassName={styles.active}
         />
       </div>
     </div>

@@ -9,7 +9,7 @@ export default function Group({ groups }) {
   return (
     <div className="container">
       <div className="card">
-        {users.map((user, idx) => <div>
+        {users.map((user, idx) => <div key={idx}>
           <h2> User ID {idx+1} </h2>
           {user.map(post => <p>{post.title}</p>)}
           </div> )}

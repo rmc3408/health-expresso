@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Head from "next/head";
+import Layout from "./Layout";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
 
@@ -8,9 +8,6 @@ import Paginate from './Paginate';
 import FullPosts from './FullPosts';
 
 export default function Home({ data }) {
-  const perPage = 5;
-
-
   const [offset, setOffset] = useState(0);
   const [fullPosts, setFullPosts] = useState([]);
   const [paginatePosts, setPaginatePosts] = useState([]);
@@ -18,6 +15,8 @@ export default function Home({ data }) {
   const [isAllpost, setAllPost] = useState(false);
   const [isGrouped, setIsGrouped] = useState(false);
 
+  const perPage = 5;
+  
   /**
    * Checks Fetched data and process data:
    * @variable {allPosts} all posts
@@ -51,7 +50,7 @@ export default function Home({ data }) {
 
   /**
    * once click in the page number will calculate new OffSet.
-   * @param {event} page selected number;
+   * @param {event} e event to selected number;
    */
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
@@ -75,14 +74,9 @@ export default function Home({ data }) {
   };
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Health Expresso in Next.JS App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Layout>
       <main className={styles.main}>
-        <h2 className={styles.title}>Health Expresso</h2>
+        
 
         <label>Pagination or All Post: </label>
         <button onClick={() => tooglePagination()} className={isAllpost ? styles.btnInact : styles.btnAct}>
@@ -103,7 +97,7 @@ export default function Home({ data }) {
         </div>
 
       </main>
-    </div>
+    </Layout>
   );
 }
 
