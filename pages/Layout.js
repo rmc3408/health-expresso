@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styled from 'styled-components';
 
+//style components
 const StyledContainer = styled.div`
   width: 80%;
   margin: 0 auto;

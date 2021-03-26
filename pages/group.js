@@ -8,6 +8,8 @@ export default function Group({ groups }) {
   */
   const users = Object.values(groups);
 
+
+  //style components
   const FlexContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -37,18 +39,18 @@ export default function Group({ groups }) {
   `;
 
   const TitleCard = styled.h2`
-    color: palevioletred;
+    color: lightred;
+    &:hover {
+      color: white;
+    }
   `;
 
   return (
     <FlexContainer>
-      
         {users.map((user, idx) => <Card key={idx}>
-          <h2> User Id {idx+1} </h2>
+          <TitleCard> User Id {idx+1} </TitleCard>
           {user.map(post => <p>{post.title}</p>)}
           </Card> )}
-
-      
     </FlexContainer>
   );
 }

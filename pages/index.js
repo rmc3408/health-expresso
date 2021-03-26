@@ -6,6 +6,39 @@ import Group from "./group";
 import Paginate from './Paginate';
 import FullPosts from './FullPosts';
 
+
+//style components
+const MainBoard = styled.main`
+padding: 20px;
+min-width: 100%;
+`;
+const Button = styled.button`
+color: palevioletred;
+font-size: 1em;
+background-color: white;
+margin: 1em;
+padding: 0.25em 1em;
+border: 2px solid palevioletred;
+border-radius: 3px;
+
+&:hover {
+  background-color: palevioletred;
+  color: white;
+}
+`;
+const GroupedButton = styled(Button)`
+color: lightred;
+border-color: violetred;
+`;
+const Grid = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+max-width: 100%;
+margin-top: 3rem;
+`;
+
 export default function Home({ data }) {
   const [offset, setOffset] = useState(0);
   const [fullPosts, setFullPosts] = useState([]);
@@ -71,55 +104,21 @@ export default function Home({ data }) {
   const groupID = () => {
     setIsGrouped(!isGrouped);
   };
-
-  const MainBoard = styled.main`
-    padding: 20px;
-    min-width: 100%;
-`;
-  const Button = styled.button`
-    color: palevioletred;
-    font-size: 1em;
-    background-color: white;
-    margin: 1em;
-    padding: 0.25em 1em;
-    border: 2px solid palevioletred;
-    border-radius: 3px;
-
-    &:hover {
-      background-color: palevioletred;
-      color: white;
-    }
-  `;
-  const GroupedButton = styled(Button)`
-    color: lightred;
-    border-color: violetred;
-  `;
-  const Grid = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 100%;
-    margin-top: 3rem;
-  `;
-
+  
   return (
     <Layout>
       <MainBoard>
         
-
         <label>Filter by: </label>
         <Button onClick={() => tooglePagination()}>
           {isAllpost ? "5 per Page" : "All"}
         </Button>
-        
         
         {isAllpost ? (
           <GroupedButton onClick={() => groupID()}>
             {isGrouped ? "Grouped" : "UserID"}
           </GroupedButton>
         ) : "" }
-
 
         <Grid>
           {!isAllpost ? <Paginate screen={paginatePosts} handlePageClick={handlePageClick}/> : (
