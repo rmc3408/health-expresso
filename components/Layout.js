@@ -26,10 +26,10 @@ function Layout(props) {
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet"/>
-        <title>Health Expresso</title>
+        <title>Health Espresso</title>
       </Head>
 
-      <Title>Health Expresso</Title>
+      <Title>Health Espresso</Title>
       {props.children}
     </StyledContainer>
   );

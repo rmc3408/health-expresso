@@ -49,7 +49,7 @@ export default function Group({ groups }) {
     <FlexContainer>
         {users.map((user, idx) => <Card key={idx}>
           <TitleCard> User Id {idx+1} </TitleCard>
-          {user.map(post => <p>{post.title}</p>)}
+          {user.map((post, index) => <p key={index}>{post.title}</p>)}
           </Card> )}
     </FlexContainer>
   );
